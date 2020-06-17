@@ -1,0 +1,5 @@
+By accepting this Terms of Use, the licensee has the right to use the DENSE datasets permanent, royalty-free and non-exclusive for own research and teaching purposes. This includes in particular the right to store and edit the data. Any commercial use or the disclosure of data to third parties (without charge or paid) is prohibited.
+
+The user is responsible for the processing of the files in compliance with the applicable data protection laws in his country (in Europe according to the General Data Protection Regulation (GDPR)). In compliance with these regulations, the partial use of images from the data set in scientific publications is permitted. For this purpose, at least persons and vehicle license plates have to be made unrecognizable. In all publications containing results obtained using the DENSE datasets, the corresponding paper has to be cited.
+
+For the accuracy and usability of the data we do not accept any guaranty. The use of the data set is at your own risk, A LIABILITY FOR DAMAGES OF ANY KIND RESULTING FROM ITS USE IS EXCLUDED.

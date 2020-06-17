@@ -1,0 +1,6 @@
+{
+    "rgb": ["cam_stereo_left_lut", "cam_stereo_left_bit_shift"], 
+    "lidar3d": ["lidar_hdl64_last", "lidar_hdl64_strongest"], 
+    "gated": ["gated0_rect", "gated1_rect", "gated2_rect", "gated_full_acc_rect", "gated_full_rect8"], 
+    "lidar": ["lidar_hdl64_strongest_stereo_left", "lidar_hdl64_last_gated", "lidar_hdl64_last_stereo_left", "lidar_hdl64_strongest_gated"]
+}
