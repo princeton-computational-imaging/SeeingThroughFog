@@ -1,14 +1,14 @@
 SeeingThroughFog
 ============================
 
-## [Paper Link](https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion.pdf)
+[Paper Link](https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion.pdf)
 
 We introduce a object detection benchmark in challenging adverse weather conditions covering 12000 samples in real world driving scenes and 1500 samples in controlled weather conditions within a fog chamber. The dataset covers different weather conditions as Fog, Snow and Rain and was acquired by over 10,000 km of driving in northern Europe. The driven route with cities along the route are shown below. In total 100k Objekts where labeled with accurate 2D and 3D bounding boxes. Main contributions of this dataset are:
 
 - We provide a proving ground for a broad range of algorithms covering signal enhancement, domain adaptation, object detection or multi-modal sensor fusion focusing on the learning of robust redundancies in between sensor especially if they fail asymmetrically in different weather conditions.
 - The dataset was created with the initial intention to showcase methods learning robust redundancies in between sensor enabling raw data sensor fusion in case of asymmetric sensor failure induced through adverse weather effects.
   In our case we departed from proposal level fusion and applied a adaptive fusion driven by measurement entropy enabling the detection also in case of unknown adverse weather effects. This method outperforms other reference fusion methods, which even drop in below single image methods.
-- Furthermore we compared the method to variety of related methods as domain adaptation, signal enhancement and adverse weather simulation. Please check out our paper for more information. Click [here](https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion.pdf).
+- Furthermore, we compared the method to variety of related methods as domain adaptation, signal enhancement and adverse weather simulation. Please see [paper](https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion.pdf) for more information.
 
 
 
