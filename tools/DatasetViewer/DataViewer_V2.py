@@ -852,8 +852,8 @@ def main(name):
         print('Problem when reading matching file for AdverseWeather2Algolux!')
 
     label_topics = {
-        'rgb': 'gt_labels_final/cam_left_labels_TMP',
-        'gated': 'gt_labels_final/gated_labels_TMP',
+        'rgb': 'gt_labels/cam_left_labels_TMP',
+        'gated': 'gt_labels/gated_labels_TMP',
     }
 
     can_steering_angle_topic = 'can_body_chassis'
