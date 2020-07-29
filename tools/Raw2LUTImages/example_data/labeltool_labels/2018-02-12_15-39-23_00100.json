@@ -1,0 +1,45 @@
+{
+    "bad_sensor": false,
+    "daytime": {
+        "day": true,
+        "night": false
+    },
+    "meta": {
+        "environment": {
+            "dry": false,
+            "full_snow_coverage": true,
+            "slushy": false,
+            "wet": false
+        },
+        "illumination": {
+            "best_cv_weather": false,
+            "high_dynamic_range": false,
+            "low_dynamic_range": true,
+            "overall_dark": false,
+            "sunglare": false
+        },
+        "infrastructure": {
+            "highway": false,
+            "in_city": true,
+            "suburban": false,
+            "tunnel": false
+        }
+    },
+    "objects": {
+        "no_objects": false
+    },
+    "rating": {
+        "appropriate": true,
+        "discard": false,
+        "dispensable": false,
+        "interpolate": false,
+        "very_interesting": false
+    },
+    "weather": {
+        "clear": false,
+        "dense_fog": false,
+        "light_fog": false,
+        "rain": false,
+        "snow": true
+    }
+}
