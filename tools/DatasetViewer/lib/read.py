@@ -45,9 +45,9 @@ def get_kitti_object_list(label_file, camera_to_velodyne=None):
                     'qy':           float(kitti_properties[20]),
                     'qz':           float(kitti_properties[21]),
                     'qw':           float(kitti_properties[22]),
-                    'visibleRGB':   float(kitti_properties[23]),
-                    'visibleGated': float(kitti_properties[24]),
-                    'visibleLidar': float(kitti_properties[25]),
+                    'visibleRGB':   bool(kitti_properties[23]),
+                    'visibleGated': bool(kitti_properties[24]),
+                    'visibleLidar': bool(kitti_properties[25]),
                 }
 
                 if camera_to_velodyne is not None:
