@@ -341,15 +341,20 @@ class DatasetViewer(QtGui.QMainWindow):
     def update_gated(self, label_idx=None):
         path = self.get_path('gated')
         # @ TODO check topic mapping
-        topic_id = self.gated_topic.split('_')[0][-1]
+        if 'gated_full_rect8' != self.gated_topic:
+            topic_id = self.gated_topic.split('_')[0][-1]
+        else:
+            topic_id = '4'
         mapping ={
-            '0': '8',
-            '1': '9',
-            '2': '10',
-            'd': '0',
+            '0': '0',
+            '1': '1',
+            '2': '2',
+            '4': 'full'
         }
-        # mapping
-        timestamp = self.get_timestamp_from_data_name(topic='gated_type%s'%(mapping[topic_id]))
+        if topic_id not in mapping.keys():
+            timestamp = None
+        else:
+            timestamp = self.get_timestamp_from_data_name(topic='gated%s'%(mapping[topic_id]))
         if timestamp is not None:
             time_diff = get_time_difference(self.stereo_timestamp, timestamp)
             self.timeGatedEdit.setText('{} ms'.format(time_diff))
@@ -381,7 +386,7 @@ class DatasetViewer(QtGui.QMainWindow):
     def update_lidar3d(self, label_idx=None):
         path = self.get_path('lidar3d')
 
-        timestamp = self.get_timestamp_from_data_name(topic='lidar3d')
+        timestamp = self.get_timestamp_from_data_name(topic='lidar')
         if timestamp is not None:
             time_diff = get_time_difference(self.stereo_timestamp, timestamp)
             self.timeLidar3dEdit.setText('{} ms'.format(time_diff))
@@ -663,11 +668,10 @@ class DatasetViewer(QtGui.QMainWindow):
 
         # get matching file name from AdverseWeather data
         matching_label_topic = self.timedelays.get(topic)
-        old_data_name, Path = matching_label_topic.get(recording, ('NoFrame', 'NoPath'))
-        if Path != 'NoPath':
+        old_data_name = matching_label_topic.get(recording.split('.png')[0], 'NoFrame')
+        if old_data_name != 'NoFrame':
             old_data_name = os.path.splitext(old_data_name)[0]
             old_data_name = old_data_name.split('_')[1]
-
             stereo_timestamp = int(old_data_name)
             return stereo_timestamp
 
@@ -847,7 +851,6 @@ def main(name):
     try:
         with open(args.path_timestamps) as file:
             timedelays = json.loads(file.read())
-            print(timedelays)
     except IOError:
         print('Problem when reading matching file for AdverseWeather2Algolux!')
 
@@ -856,10 +859,10 @@ def main(name):
         'gated': 'gt_labels/gated_labels_TMP',
     }
 
-    can_steering_angle_topic = 'can_body_chassis'
-    can_speed_topic = 'can_body_basic'
-    can_light_sense_topic = 'can_body_lightsense'
-    can_wiper_topic = 'can_body_wiper'
+    can_steering_angle_topic = 'filtered_relevant_can_data/can_body_chassis'
+    can_speed_topic = 'filtered_relevant_can_data/can_body_basic'
+    can_light_sense_topic = 'filtered_relevant_can_data/can_body_lightsense'
+    can_wiper_topic = 'filtered_relevant_can_data/can_body_wiper'
     road_friction_topic = 'road_friction'
     weather_topic = 'weather_station'
 
