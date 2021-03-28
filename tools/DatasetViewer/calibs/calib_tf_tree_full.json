@@ -429,7 +429,7 @@
                 "w": 1.0
             }
         }, 
-        "child_frame_id": "radar_ars300"
+        "child_frame_id": "radar"
     }, 
     {
         "header": {

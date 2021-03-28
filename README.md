@@ -68,17 +68,56 @@ After unzipping the files, your directory should look like this:
     |-- cam_stereo_left
         |-- *.tiff
         |-- ...
-    |-- cam_stereo_left_bit_shift
-        |-- *.png
-        |-- ...
-    |-- cam_stereo_left_bit_shift
+    |-- cam_stereo_left_lut
         |-- *.png
         |-- ...
     |-- lidar_hdl64_last
         |-- *.bin
         |-- ...
+    |-- lidar_hdl64_strongest
+        |-- *.bin
+        |-- ...
     |-- ...
 ```
+
+Each folder has following meaning:
+
+| Folder                        | Extrinsic Coordinate System  | Necessary for DataViewer   | Description                                                                                                 |
+|-------------------------------|--------------------------|---|-------------------------------------------------------------------------------------------------------------|
+| cam_stereo_left               | cam_stereo_left_optical  | -  | 12-bit RGB images captured from the left stereo camera.                                                     |
+| cam_stereo_left_lut           | cam_stereo_left_optical  | x  | 8-bit RGB left stereo camera images used for annotating the dataset, with custom tone mapping presented in tools/Raw2LUTImages/main.py. |
+| cam_stereo_right              | cam_stereo_right_optical | -  | 12-bit RGB images captured from the right stereo camera.                                                    |
+| cam_stereo_right_lut          | cam_stereo_right_optical | x  | 8-bit RGB right stereo camera images with custom tone mapping.                                              |
+| cam_stereo_sgm                | -                        | -  | Stereo disparity calculated using Stereo Global Matching (SGM).                                        |
+| cam_stereo_left_raw_history_\<d>  | cam_stereo_left_optical  | -  | Temporal History data for \<d> in [-5,3] which represents the relativ offset to the annotated samples in cam_stereo_left. |
+| fir_axis                      | fir_axis_roof_optical    | -  | 8-bit FIR reference camera. |
+| gated\<d>_raw                 | bwv_cam_optical          | -  | 10-bit NIR gated camera image for slice index \<d>. |
+| gated\<d>_rect                | bwv_cam_optical          | x  | 10-bit rectified NIR gated camera image for slice index \<d>. |
+| gated\<d>_8bit                | bwv_cam_optical          | -  | 8-bit rectified bitshifted NIR gated camera image for slice index \<d> used for dataset annotation.|
+| gated_full_rect               | bwv_cam_optical          | x  | 10-bit NIR gated camera image with joint slices from a single capture.|
+| gated_full_rect8              | bwv_cam_optical          | -  | 8-bit rectified bitshifted NIR gated camera image with joint slices from a single capture. |
+| gated_full_acc_rect           | bwv_cam_optical          | -  | 10-bit NIR gated camera image with overlayed gated slices from gated\<d>_raw. |
+| gated_full_acc_rect8          | bwv_cam_optical          | x  | 8-bit rectified bitshifted NIR gated camera image with overlayed gated slices from gated\<d>_8bit. |
+| radar_targets                 | radar                    | -  | Radar target pointcloud. |
+| lidar_hdl64_last              | lidar_hdl64_s3_roof      | x  | Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the last echo. |
+| lidar_hdl64_last_gated        | bwv_cam_optical          | x  | Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the last echo projected into gated camera. |
+| lidar_hdl64_last_stereo_left  | cam_stereo_left_optical  | x  | Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the last echo projected into left stereo image. |
+| lidar_hdl64_strongest              | lidar_hdl64_s3_roof     | x  | Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the strongest echo. |
+| lidar_hdl64_strongest_gated        | bwv_cam_optical         | x  | Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the strongest echo projected into gated camera. |
+| lidar_hdl64_strongest_stereo_left  | cam_stereo_left_optical | x  | Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the strongest echo projected into left stereo image. |
+| lidar_vlp32_last              | lidar_vlp32_roof         | -  | Lidar pointcloud acquired from the Velodyne VLP32 containing the last echo. |
+| lidar_vlp32_strongest         | lidar_vlp32_roof         | -  | Lidar pointcloud acquired from the Velodyne VLP32 containing the strongest echo. |
+| velodyne_planes               | -                        | -  | Lidar groundplanes estimated from the lidar_hdl64_strongest measurements. |
+| road_friction                 | -                        | x  | Road friction measurements. |
+| weather_station               | -                        | x  | Ambient temperature, humidity, dew point, ... |
+| labeltool_labels              | -                        | x  | Meta labels on ambient illumination, drivable patch, scene setting and weather. |
+| filtered_relevant_can_data    | -                        | x  | Vehicle data on wiper state, speed, ... |
+| gt_labels                     | -                        | x  | 3D annotation labels following the Kitti annotation layout. cam_left_labels_TMP contains the labels inside the stereo camera left coordinate system and gated_labels_TMP in the gated camera coordinate system. |
+
+The extrinsic coordinate transormations in the third column are given in tools/DatasetViewer/calibs/calib_tf_tree_full.json. It follows the general tansformation logic from ROS.
+
+For an initial reasoning about the dataset the DataViwer in tools/DatasetViewer/DataViewer_V2.py can be used. The needed data is marked in the table above.
+
 
 ### Sensor Setup
 
