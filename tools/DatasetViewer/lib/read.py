@@ -86,14 +86,22 @@ def load_calib_data(path_total_dataset, name_camera_calib, tf_tree):
     with open(os.path.join(path_total_dataset, tf_tree), 'r') as f:
         data_extrinsics = json.load(f)
 
+    calib_dict = {
+        'calib_cam_stereo_left.json': 'cam_stereo_left_optical',
+        'calib_cam_stereo_right.json': 'cam_stereo_right_optical',
+        'calib_gated_bwv.json': 'bwv_cam_optical'
+    }
+
+    cam_name = calib_dict[name_camera_calib]
+
     # Scan data extrinsics for transformation from lidar to camera
-    important_translations = ['lidar_hdl64_s3_roof', 'radar_ars300', 'cam_stereo_left_optical']
+    important_translations = ['lidar_hdl64_s3_roof', 'radar_ars300', cam_name]
     translations = []
 
     for item in data_extrinsics:
         if item['child_frame_id'] in important_translations:
             translations.append(item)
-            if item['child_frame_id'] == 'cam_stereo_left_optical':
+            if item['child_frame_id'] == cam_name:
                 T_cam = item['transform']
             elif item['child_frame_id'] == 'lidar_hdl64_s3_roof':
                 T_velodyne = item['transform']
