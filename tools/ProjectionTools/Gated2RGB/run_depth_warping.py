@@ -10,11 +10,11 @@ import argparse
 
 
 def parsArgs():
-    parser = argparse.ArgumentParser(description='Lidar Fog Simulation Filename')
+    parser = argparse.ArgumentParser(description='Gated2RGB projection tool')
     parser.add_argument('--root', '-r', help='Enter the root folder', default='./example_data')
-    parser.add_argument('--depth_folder', '-d', help='Data folder precise Depth', default='psmnet_sweden', choices=['cam_stereo_sgm', 'psmnet_sweden'])
-    parser.add_argument('--debug', '-deb', type=bool, help='Save Human Readable Image', default=True)
-    parser.add_argument('--suffix', '-s', type=str, help='warped images', default='psm_warped')
+    parser.add_argument('--depth_folder', '-d', help='Data folder precise depth', default='psmnet_sweden', choices=['cam_stereo_sgm', 'psmnet_sweden'])
+    parser.add_argument('--debug', '-deb', type=bool, help='Save human readable image', default=True)
+    parser.add_argument('--suffix', '-s', type=str, help='Define suffix for warped images', default='psm_warped')
     args = parser.parse_args()
 
 
