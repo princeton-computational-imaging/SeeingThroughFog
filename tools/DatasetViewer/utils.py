@@ -8,6 +8,7 @@ import os
 import glob
 import json
 
+
 def create_lut_from_kneepoints(kneepoints, bit_depth=16):
     lut_kneepoints = kneepoints[:]
     start_point = [0,0]

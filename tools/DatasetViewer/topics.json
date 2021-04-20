@@ -1,6 +1,6 @@
 {
     "rgb": ["cam_stereo_left_lut", "cam_stereo_right_lut"],
-    "lidar3d": ["lidar_hdl64_last", "lidar_hdl64_strongest", "lidar_vlp32_last", "lidar_vlp32_strongest"],
-    "gated": ["gated0_rect", "gated1_rect", "gated2_rect", "gated_full_acc_rect", "gated_full_rect8"], 
+    "lidar3d": ["lidar_hdl64_strongest", "lidar_hdl64_last", "lidar_vlp32_strongest", "lidar_vlp32_last"],
+    "gated": ["gated_full_acc_rect", "gated0_rect", "gated1_rect", "gated2_rect"],
     "lidar": ["lidar_hdl64_strongest_stereo_left", "lidar_hdl64_last_gated", "lidar_hdl64_last_stereo_left", "lidar_hdl64_strongest_gated"]
 }

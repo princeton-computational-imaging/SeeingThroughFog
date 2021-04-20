@@ -1,16 +1,8 @@
 import numpy as np
 import cv2
-from lib.utils import rotx_matrix, roty_matrix, rotz_matrix
+from tools.DatasetViewer.lib.utils import rotx_matrix, roty_matrix, rotz_matrix
 
-# Assign color to each label for visualization
-LABEL_TO_CLR = {"Don't care region": (10, 10, 10),
-                'RidableVehicle': (128, 255, 10),
-                'Obstacle': (120, 120, 120),
-                'Pedestrian': (10, 10, 255),
-                'PassengerCar': (255, 10, 10),
-                'LargeVehicle': (10, 255, 10),
-                'Vehicle': (10, 120, 120)
-                }
+
 
 def project_3d_to_2d(points3d, P):
     points2d = np.matmul(P, np.vstack((points3d, np.ones([1, np.shape(points3d)[1]]))))

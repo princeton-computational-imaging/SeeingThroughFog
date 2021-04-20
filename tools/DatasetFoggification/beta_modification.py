@@ -1,91 +1,147 @@
 import numpy as np
 
 
-class BetaRadomization():
 
-    def __init__(self, beta):
-        """
-        Do initliatization
+class BetaRadomization:
 
-        """
+    def __init__(self, beta, seed=None, param_set='DENSE'):
 
+        if seed is not None:
+            # fix random seed
+            np.random.seed(seed)
 
-        self.mhf = 2 # maximal horzontal frequency
-        self.mvf = 5 # maximal vertical frequency
-        self.height_max = 5
-        self.offset = []
-
+        self.noise_mean = 0.0
+        self.noise_std = 0.0
 
         self.beta = beta
 
-        # sample number of furier components, sample random offsets to one another, # Independence Height and angle
-        self.number_height = np.random.randint(3,5)
-        self.number_angle = np.random.randint(6,10)
+        if param_set == 'DENSE_use_n_heights':
 
-        # sample frequencies
-        self.frequencies_angle = np.random.randint(1, self.mhf, size=self.number_angle)
-        self.frequencies_height = np.random.randint(0, self.mvf, size=self.number_angle)
-        # sample frequencies
-        self.offseta = np.random.uniform(0, 2*np.pi, size=self.number_angle)
-        self.offseth = np.random.uniform(0, 2*np.pi, size=self.number_angle)
-        self.intensitya = np.random.uniform(0, 0.1/self.number_angle/2, size=self.number_angle)
-        self.intensityh = np.random.uniform(0, 0.1/self.number_angle/2, size=self.number_angle)
+            magnitude = 0.05
 
-        pass
+            mhf = 2  # max horzontal frequency
+            mvf = 5  # max vertical frequency
+
+            # sample number of fourier components, for angle and height independendently
+            n_angles = np.random.randint(6, 10)
+            n_heights = np.random.randint(3, 5)
+
+            # sample frequencies
+            self.frequencies_angle = np.random.randint(1, mhf, size=n_angles)
+            self.frequencies_height = np.random.randint(0, mvf, size=n_heights)
+
+            # sample random offsets to one another
+            self.offset_angle = np.random.uniform(0, 2 * np.pi, size=n_angles)
+            self.offset_height = np.random.uniform(0, 2 * np.pi, size=n_heights)
+
+            # sample intensities
+            self.intensity_angle = np.random.uniform(0, magnitude / n_angles, size=n_angles)
+            self.intensity_height = np.random.uniform(0, magnitude / n_heights, size=n_heights)
+
+        elif param_set == 'DENSE_no_noise':
+
+            magnitude = 0
+
+            mhf = 2  # max horzontal frequency
+            mvf = 5  # max vertical frequency
+
+            # sample number of fourier components
+            n_components = np.random.randint(6, 10)
+
+            # sample frequencies
+            self.frequencies_angle = np.random.randint(1, mhf, size=n_components)
+            self.frequencies_height = np.random.randint(0, mvf, size=n_components)
+
+            # sample random offsets to one another
+            self.offset_angle = np.random.uniform(0, 2 * np.pi, size=n_components)
+            self.offset_height = np.random.uniform(0, 2 * np.pi, size=n_components)
+
+            # sample intensities
+            self.intensity_angle = np.random.uniform(0, magnitude / n_components, size=n_components)
+            self.intensity_height = np.random.uniform(0, magnitude / n_components, size=n_components)
+
+        elif param_set == 'CVL':
+
+            magnitude = 0.01
+            # magnitude = self.beta / 2
+
+            mhf = 2  # max horzontal frequency
+            mvf = 5  # max vertical frequency
+
+            # sample number of fourier components
+            n_components = np.random.randint(6, 10)
+
+            # sample frequencies
+            self.frequencies_angle = np.random.randint(1, mhf, size=n_components)
+            self.frequencies_height = np.random.randint(0, mvf, size=n_components)
+
+            # sample random offsets to one another
+            self.offset_angle = np.random.uniform(0, 2 * np.pi, size=n_components)
+            self.offset_height = np.random.uniform(0, 2 * np.pi, size=n_components)
+
+            # sample intensities
+            self.intensity_angle = np.random.uniform(0, magnitude / n_components, size=n_components)
+            self.intensity_height = np.random.uniform(0, magnitude / n_components, size=n_components)
+
+        else: # assume param_set == 'DENSE'
+
+            magnitude = 0.05
+
+            mhf = 2 # max horzontal frequency
+            mvf = 5 # max vertical frequency
+
+            # sample number of fourier components
+            n_components = np.random.randint(6, 10)
+
+            # sample frequencies
+            self.frequencies_angle = np.random.randint(1, mhf, size=n_components)
+            self.frequencies_height = np.random.randint(0, mvf, size=n_components)
+
+            # sample random offsets to one another
+            self.offset_angle = np.random.uniform(0, 2 * np.pi, size=n_components)
+            self.offset_height = np.random.uniform(0, 2 * np.pi, size=n_components)
+
+            # sample intensities
+            self.intensity_angle = np.random.uniform(0, magnitude / n_components, size=n_components)
+            self.intensity_height = np.random.uniform(0, magnitude / n_components, size=n_components)
+
+
 
     def propagate_in_time(self, timestep):
-        self.offseta += self.frequencies_angle * timestep/10
-        self.offseth += self.frequencies_height * timestep / 10
-        pass
 
-    def setup(self, beta):
-        pass
+        self.offset_angle += self.frequencies_angle * timestep / 10
+        self.offset_height += self.frequencies_height * timestep / 10
 
-    def _function(self, angle_h=None, height=None):
-        was_None = False
-        if height is None:
-            height = np.linspace(0, self.height_max, 200)/self.height_max*2*np.pi
-            was_None = True
 
-        if angle_h is None:
-            angle_h = np.linspace(0, 2*np.pi, 200)
-            was_None = True
-        a = 0
-        h = 0
-        if was_None:
-            a, h = np.meshgrid(angle_h, height)
-        else:
-            a = angle_h
-            h = height
+    def _function(self, angle, height):
+
+        a, h = angle, height
 
         output = np.zeros(np.shape(a))
-        for fa, fh, oa, oh, Ah, Aa in zip(self.frequencies_angle, self.frequencies_height, self.offseta, self.offseth, self.intensityh, self.intensitya):
-            output += np.abs((Aa*np.sin(fa*a+oa)/fa+Ah*np.sin(fa*a+fh*h+oh)))
+
+        for fa, fh, oa, oh, ih, ia in zip(self.frequencies_angle,
+                                          self.frequencies_height,
+                                          self.offset_angle,
+                                          self.offset_height,
+                                          self.intensity_height,
+                                          self.intensity_angle):
+
+            noise = np.abs((ia*np.sin(fa*a+oa)/fa+ih*np.sin(fa*a+fh*h+oh)))
+
+            self.noise_mean = noise.mean()
+            self.noise_std = noise.std()
+
+            output += noise
 
         output += self.beta
-        print(output)
+
         return output
 
-    def _print_function(self):
-        """
-        Print function for values inbetween 0-360 and inbetween different heights
-        :return:
-        """
-        pass
 
+    def get_beta(self, forward, right, height):
 
+        forward = np.where(forward == 0, 0.0001, forward)   # prevent division by zero in next line
+        angle = np.tan(np.divide(right, forward))
+        ranomized_beta = self._function(angle, height)
 
-
-    def get_beta(self, distance_forward, right, height):
-        distance_forward = np.where(distance_forward == 0, np.ones_like(distance_forward) * 0.0001, distance_forward)
-        angle = np.tan(np.divide(right, distance_forward))
-        beta_usefull = self._function(angle, height)
-
-        return beta_usefull
-
-
-
-if __name__ == '__main__':
-    C = BetaRadomization(0.02)
-    C.setup(0.08)
-    C._function()
+        return ranomized_beta

@@ -9,5 +9,5 @@ A preview can be seen below.
 To start the dataset viewer please type
 
 ```
-python main.py --path <PathToDataset>
+python dataset_viewer.py --root_path <PathToDataset>
 ```

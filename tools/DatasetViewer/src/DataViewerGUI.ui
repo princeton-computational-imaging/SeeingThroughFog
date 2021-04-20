@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1374</width>
-    <height>1502</height>
+    <width>1920</width>
+    <height>1120</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -32,7 +32,7 @@
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="3" column="0">
      <layout class="QGridLayout" name="gridLayout_1">
-      <item row="7" column="0" colspan="2">
+      <item row="7" column="0" colspan="1">
        <widget class="QPushButton" name="resetViewButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -53,6 +53,30 @@
         </property>
         <property name="text">
          <string>Reset View</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1" colspan="1">
+       <widget class="QPushButton" name="removeGroundButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>make life easier</string>
         </property>
        </widget>
       </item>
@@ -413,27 +437,9 @@
       </property>
      </spacer>
     </item>
-    <item row="5" column="0">
+    <item row="3" column="3">
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="5" column="12">
-       <widget class="QLabel" name="label_15">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>snow</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3" rowspan="13">
+      <item row="0" column="3" rowspan="15">
        <spacer name="verticalSpacer_8">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -445,42 +451,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-      <item row="2" column="8">
-       <widget class="QLabel" name="PageDownLbel">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>PageDown</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="9">
-       <widget class="QLabel" name="exitLabel">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Exit</string>
-        </property>
-       </widget>
       </item>
       <item row="4" column="2">
        <widget class="QComboBox" name="ratingComboBox">
@@ -494,60 +464,6 @@
          <font>
           <pointsize>12</pointsize>
          </font>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="9">
-       <widget class="QLabel" name="label_23">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>dispensable</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="12">
-       <widget class="QLabel" name="label_12">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>light_fog</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="11">
-       <widget class="QLabel" name="label_8">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>y</string>
         </property>
        </widget>
       </item>
@@ -571,222 +487,24 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="8">
-       <widget class="QLabel" name="label_2">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="8">
-       <widget class="QLabel" name="label_28">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>e</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="9">
-       <widget class="QLabel" name="label_10">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>bad_sensor</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="8">
-       <widget class="QLabel" name="PageUpLabel">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>PageUp</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="11">
-       <widget class="QLabel" name="label_18">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>l</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="9">
-       <widget class="QLabel" name="label_21">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>no_objects</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="labelingLabel">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Labeling:</string>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::AutoText</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <widget class="QCheckBox" name="keepLabelsCheckBox">
-        <property name="minimumSize">
-         <size>
-          <width>120</width>
-          <height>10</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Keep Labels</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="5">
-       <widget class="QLabel" name="label_33">
-        <property name="minimumSize">
-         <size>
-          <width>120</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="11">
-       <widget class="QLabel" name="label_3">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>a</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="12">
-       <widget class="QLabel" name="label_17">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>night</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="12">
-       <widget class="QLabel" name="label_19">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Edit Labels</string>
-        </property>
-       </widget>
-      </item>
+<!--      <item row="7" column="1">-->
+<!--       <widget class="QCheckBox" name="keepLabelsCheckBox">-->
+<!--        <property name="minimumSize">-->
+<!--         <size>-->
+<!--          <width>120</width>-->
+<!--          <height>10</height>-->
+<!--         </size>-->
+<!--        </property>-->
+<!--        <property name="font">-->
+<!--         <font>-->
+<!--          <pointsize>12</pointsize>-->
+<!--         </font>-->
+<!--        </property>-->
+<!--        <property name="text">-->
+<!--         <string>Keep Labels</string>-->
+<!--        </property>-->
+<!--       </widget>-->
+<!--      </item>-->
       <item row="5" column="2">
        <widget class="QComboBox" name="weatherComboBox">
         <property name="minimumSize">
@@ -799,24 +517,6 @@
          <font>
           <pointsize>12</pointsize>
          </font>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="12">
-       <widget class="QLabel" name="label_14">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>rain</string>
         </property>
        </widget>
       </item>
@@ -840,60 +540,6 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="9">
-       <widget class="QLabel" name="prevSampleLabel">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Previous Sample</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="8">
-       <widget class="QLabel" name="escLabel">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>ESC</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="8">
-       <widget class="QLabel" name="label_20">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>2</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1">
        <widget class="QLabel" name="sensorLabel">
         <property name="minimumSize">
@@ -914,148 +560,11 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="9">
-       <widget class="QLabel" name="label_24">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>appropriate</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1" colspan="2">
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="6" column="8">
-       <widget class="QLabel" name="label_26">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>q</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="8">
-       <widget class="QLabel" name="label_29">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>r</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="9">
-       <widget class="QLabel" name="label_22">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>discard</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="6" rowspan="14">
-       <spacer name="verticalSpacer_6">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Minimum</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="11">
-       <widget class="QLabel" name="label_4">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>s</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="9">
-       <widget class="QLabel" name="label_25">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>very_interesting</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="1" colspan="2">
        <widget class="QPushButton" name="editLabelsButton">
         <property name="minimumSize">
          <size>
-          <width>280</width>
+          <width>300</width>
           <height>30</height>
          </size>
         </property>
@@ -1066,127 +575,6 @@
         </property>
         <property name="text">
          <string>Edit Labels</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="9">
-       <widget class="QLabel" name="nextSampleLabel">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Next Sample</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="9">
-       <widget class="QLabel" name="label_31">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>interpolate</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="11">
-       <widget class="QLabel" name="label_7">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>g</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="8">
-       <widget class="QLabel" name="label_27">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>w</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="8" colspan="2">
-       <spacer name="horizontalSpacer_8">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="6" column="12">
-       <widget class="QLabel" name="label_16">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>day</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="11">
-       <widget class="QLabel" name="label_9">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>x</string>
         </property>
        </widget>
       </item>
@@ -1214,29 +602,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="7">
-       <widget class="QLabel" name="shortcutsLabel">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Shortcuts:</string>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::AutoText</enum>
-        </property>
-       </widget>
-      </item>
       <item row="4" column="1">
        <widget class="QLabel" name="ratingLabel">
         <property name="minimumSize">
@@ -1257,24 +622,6 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="11">
-       <widget class="QLabel" name="label_6">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>f</string>
-        </property>
-       </widget>
-      </item>
       <item row="6" column="2">
        <widget class="QComboBox" name="daytimeComboBox">
         <property name="minimumSize">
@@ -1287,37 +634,6 @@
          <font>
           <pointsize>12</pointsize>
          </font>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="10" rowspan="13">
-       <spacer name="verticalSpacer_7">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="3" column="11">
-       <widget class="QLabel" name="label_5">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>d</string>
         </property>
        </widget>
       </item>
@@ -1359,24 +675,6 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="12">
-       <widget class="QLabel" name="label_13">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>dense_fog</string>
-        </property>
-       </widget>
-      </item>
       <item row="5" column="4">
        <widget class="QLabel" name="label_32">
         <property name="minimumSize">
@@ -1387,42 +685,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="12">
-       <widget class="QLabel" name="label_11">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>clear</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="8">
-       <widget class="QLabel" name="label_30">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>5</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>t</string>
         </property>
        </widget>
       </item>
@@ -1780,7 +1042,7 @@
          <size>
           <width>200</width>
           <height>10</height>
-         </size>
+         </size>f
         </property>
         <property name="font">
          <font>
@@ -1821,6 +1083,464 @@
         </property>
         <property name="text">
          <string>CAN-Information:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="CVLLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>CVL:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLabel" name="LiDARpermilleLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>LiDAR (99.9%):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QLabel" name="LiDARpermilleEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLabel" name="LiDARpercentLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>LiDAR (99.5%):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="3">
+       <widget class="QLabel" name="LiDARpercentEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="5">
+       <widget class="QLabel" name="LiDARcountLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>LiDAR points:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="6">
+       <widget class="QLabel" name="LiDARcountEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="5">
+       <widget class="QLabel" name="LiDARcolorLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>LiDAR color:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="6">
+       <widget class="QLabel" name="LiDARcolorEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="8">
+       <widget class="QLabel" name="LiDARchannelLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>LiDAR channels:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="9">
+       <widget class="QLabel" name="LiDARchannelEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="8">
+       <widget class="QLabel" name="NumberPointsLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string># points:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="9">
+       <widget class="QLabel" name="NumberPointsEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="11">
+       <widget class="QLabel" name="HeightTresholdLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>height threshold:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="12">
+       <widget class="QLabel" name="HeightTresholdEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="11">
+       <widget class="QLabel" name="DistanceTresholdLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>dist. threshold:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="12">
+       <widget class="QLabel" name="DistanceTresholdEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="8">
+       <widget class="QLabel" name="LiDARcompareLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>filtered points:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="9">
+       <widget class="QLabel" name="LiDARcompareEdit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -2081,6 +1801,24 @@
         </property>
        </widget>
       </item>
+      <item row="5" column="11">
+       <widget class="QLabel" name="distantLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="text">
+         <string>"                          "</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="1" rowspan="4">
        <spacer name="verticalSpacer_2">
         <property name="orientation">
@@ -2322,6 +2060,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>removeGroundButton</sender>
+   <signal>clicked()</signal>
+   <receiver>main</receiver>
+   <slot>removeGroundButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>647</x>
+     <y>1330</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>649</x>
+     <y>717</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>badSensorCheckBox_clicked()</slot>
@@ -2333,5 +2087,6 @@
   <slot>lidarComboBox_activated()</slot>
   <slot>lidar3dComboBox_activated()</slot>
   <slot>resetViewButton_clicked()</slot>
+  <slot>removeGroundButton_clicked()</slot>
  </slots>
 </ui>

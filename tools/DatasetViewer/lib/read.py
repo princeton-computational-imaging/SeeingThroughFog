@@ -95,7 +95,7 @@ def load_calib_data(path_total_dataset, name_camera_calib, tf_tree):
     cam_name = calib_dict[name_camera_calib]
 
     # Scan data extrinsics for transformation from lidar to camera
-    important_translations = ['lidar_hdl64_s3_roof', 'radar_ars300', cam_name]
+    important_translations = ['lidar_hdl64_s3_roof', 'radar', cam_name]
     translations = []
 
     for item in data_extrinsics:
@@ -105,7 +105,7 @@ def load_calib_data(path_total_dataset, name_camera_calib, tf_tree):
                 T_cam = item['transform']
             elif item['child_frame_id'] == 'lidar_hdl64_s3_roof':
                 T_velodyne = item['transform']
-            elif item['child_frame_id'] == 'radar_ars300':
+            elif item['child_frame_id'] == 'radar':
                 T_radar = item['transform']
 
     # Use pyquaternion to setup rotation matrices properly
