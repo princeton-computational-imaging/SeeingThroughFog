@@ -10,6 +10,13 @@ def read_label(file, label_dir, camera_to_velodyne=None):
     object_list = get_kitti_object_list(os.path.join(label_dir, file_name + '.txt'), camera_to_velodyne=camera_to_velodyne)
     return object_list
 
+def decode_visible_labels(value):
+    if value == "True":
+        return True
+    elif value == "False":
+        return False
+    else:
+        return None
 
 def get_kitti_object_list(label_file, camera_to_velodyne=None):
     """Create dict for all objects of the label file, objects are labeled w.r.t KITTI definition"""
@@ -45,9 +52,10 @@ def get_kitti_object_list(label_file, camera_to_velodyne=None):
                     'qy':           float(kitti_properties[20]),
                     'qz':           float(kitti_properties[21]),
                     'qw':           float(kitti_properties[22]),
-                    'visibleRGB':   bool(kitti_properties[23]),
-                    'visibleGated': bool(kitti_properties[24]),
-                    'visibleLidar': bool(kitti_properties[25]),
+                    'visibleRGB':   decode_visible_labels(kitti_properties[23]),
+                    'visibleGated': decode_visible_labels(kitti_properties[24]),
+                    'visibleLidar': decode_visible_labels(kitti_properties[25]),
+                    'visibleRadar': decode_visible_labels(kitti_properties[26]),
                 }
 
                 if camera_to_velodyne is not None:
