@@ -4,7 +4,7 @@ import argparse
 import numpy as np
 
 def parsArgs():
-    parser = argparse.ArgumentParser(description='Gated2RGB projection tool')
+    parser = argparse.ArgumentParser(description='Calib projection tool')
     parser.add_argument('--root', '-r', help='Enter the root folder', default='../../DatasetViewer/calibs')
     args = parser.parse_args()
 
