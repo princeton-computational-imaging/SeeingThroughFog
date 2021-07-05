@@ -161,7 +161,7 @@ create simple fog simulations for lidar and rgb data
 
 ### Reference
 
-If you find our work on object detection in adverse weather useful in your research, please consider citing our [paper](https://arxiv.org/abs/1902.04997):
+If you find our work on object detection in adverse weather useful in your research, please consider citing our [paper](https://openaccess.thecvf.com/content_CVPR_2020/html/Bijelic_Seeing_Through_Fog_Without_Seeing_Fog_Deep_Multimodal_Sensor_Fusion_CVPR_2020_paper.html):
 
 ```
 @InProceedings{Bijelic_2020_STF,
