@@ -7,8 +7,10 @@ from pyquaternion import Quaternion
 def read_label(file, label_dir, camera_to_velodyne=None):
     """Read label file and return object list"""
     file_name = file.split('.png')[0]
-    object_list = get_kitti_object_list(os.path.join(label_dir, file_name + '.txt'), camera_to_velodyne=camera_to_velodyne)
+    object_list = get_kitti_object_list(os.path.join(label_dir, file_name + '.txt'),
+                                        camera_to_velodyne=camera_to_velodyne)
     return object_list
+
 
 def decode_visible_labels(value):
     if value == "True":
@@ -17,6 +19,7 @@ def decode_visible_labels(value):
         return False
     else:
         return None
+
 
 def get_kitti_object_list(label_file, camera_to_velodyne=None):
     """Create dict for all objects of the label file, objects are labeled w.r.t KITTI definition"""
@@ -29,30 +32,30 @@ def get_kitti_object_list(label_file, camera_to_velodyne=None):
                 kitti_properties = line.split(' ')
 
                 object_dict = {
-                    'identity':     kitti_properties[0],
-                    'truncated':    float(kitti_properties[1]),
-                    'occlusion':    float(kitti_properties[2]),
-                    'angle':        float(kitti_properties[3]),
-                    'xleft':        int(round(float(kitti_properties[4]))),
-                    'ytop':         int(round(float(kitti_properties[5]))),
-                    'xright':       int(round(float(kitti_properties[6]))),
-                    'ybottom':      int(round(float(kitti_properties[7]))),
-                    'height':       float(kitti_properties[8]),
-                    'width':        float(kitti_properties[9]),
-                    'length':       float(kitti_properties[10]),
-                    'posx':         float(kitti_properties[11]),
-                    'posy':         float(kitti_properties[12]),
-                    'posz':         float(kitti_properties[13]),
-                    'orient3d':     float(kitti_properties[14]),
-                    'rotx':         float(kitti_properties[15]),
-                    'roty':         float(kitti_properties[16]),
-                    'rotz':         float(kitti_properties[17]),
-                    'score':        float(kitti_properties[18]),
-                    'qx':           float(kitti_properties[19]),
-                    'qy':           float(kitti_properties[20]),
-                    'qz':           float(kitti_properties[21]),
-                    'qw':           float(kitti_properties[22]),
-                    'visibleRGB':   decode_visible_labels(kitti_properties[23]),
+                    'identity': kitti_properties[0],
+                    'truncated': float(kitti_properties[1]),
+                    'occlusion': float(kitti_properties[2]),
+                    'angle': float(kitti_properties[3]),
+                    'xleft': int(round(float(kitti_properties[4]))),
+                    'ytop': int(round(float(kitti_properties[5]))),
+                    'xright': int(round(float(kitti_properties[6]))),
+                    'ybottom': int(round(float(kitti_properties[7]))),
+                    'height': float(kitti_properties[8]),
+                    'width': float(kitti_properties[9]),
+                    'length': float(kitti_properties[10]),
+                    'posx': float(kitti_properties[11]),
+                    'posy': float(kitti_properties[12]),
+                    'posz': float(kitti_properties[13]),
+                    'orient3d': float(kitti_properties[14]),
+                    'rotx': float(kitti_properties[15]),
+                    'roty': float(kitti_properties[16]),
+                    'rotz': float(kitti_properties[17]),
+                    'score': float(kitti_properties[18]),
+                    'qx': float(kitti_properties[19]),
+                    'qy': float(kitti_properties[20]),
+                    'qz': float(kitti_properties[21]),
+                    'qw': float(kitti_properties[22]),
+                    'visibleRGB': decode_visible_labels(kitti_properties[23]),
                     'visibleGated': decode_visible_labels(kitti_properties[24]),
                     'visibleLidar': decode_visible_labels(kitti_properties[25]),
                     'visibleRadar': decode_visible_labels(kitti_properties[26]),
@@ -77,16 +80,31 @@ def get_kitti_object_list(label_file, camera_to_velodyne=None):
 def load_velodyne_scan(file):
     """Load and parse velodyne binary file"""
     scan = np.fromfile(file, dtype=np.float32)
-    return scan.reshape((-1, 4))[:, :4]
+    return scan.reshape((-1, 5))  # [:, :4]
 
 
-def load_calib_data(path_total_dataset, name_camera_calib, tf_tree):
+def load_radar_points(path):
+    with open(path, 'r') as f:
+        data = json.load(f)
+
+    data_list = []
+    for target in data['targets']:
+        data_list.append([target['x_sc'], target['y_sc'], 0, target['rVelOverGroundOdo_sc'], target['rDist_sc']])
+
+    targets = np.asarray(data_list)
+
+    return targets
+
+def load_calib_data(path_total_dataset, name_camera_calib, tf_tree, velodyne_name='lidar_hdl64_s3_roof'):
     """
     :param path_total_dataset: Path to dataset root dir
     :param name_camera_calib: Camera calib file containing image intrinsic
     :param tf_tree: TF (transformation) tree containing translations from velodyne to cameras
+    :param velodyne_name: Define lidar sensor: lidar_hdl_s3_roof or lidar_vlp32_roof
     :return:
     """
+
+    assert velodyne_name in ['lidar_hdl64_s3_roof', 'lidar_vlp32_roof'], 'wrong frame id in tf_tree for velodyne_name'
 
     with open(os.path.join(path_total_dataset, name_camera_calib), 'r') as f:
         data_camera = json.load(f)
@@ -103,7 +121,7 @@ def load_calib_data(path_total_dataset, name_camera_calib, tf_tree):
     cam_name = calib_dict[name_camera_calib]
 
     # Scan data extrinsics for transformation from lidar to camera
-    important_translations = ['lidar_hdl64_s3_roof', 'radar', cam_name]
+    important_translations = [velodyne_name, 'radar', cam_name]
     translations = []
 
     for item in data_extrinsics:
@@ -111,16 +129,18 @@ def load_calib_data(path_total_dataset, name_camera_calib, tf_tree):
             translations.append(item)
             if item['child_frame_id'] == cam_name:
                 T_cam = item['transform']
-            elif item['child_frame_id'] == 'lidar_hdl64_s3_roof':
+            elif item['child_frame_id'] == velodyne_name:
                 T_velodyne = item['transform']
             elif item['child_frame_id'] == 'radar':
                 T_radar = item['transform']
 
     # Use pyquaternion to setup rotation matrices properly
     R_c_quaternion = Quaternion(w=T_cam['rotation']['w'] * 360 / 2 / np.pi, x=T_cam['rotation']['x'] * 360 / 2 / np.pi,
-                     y=T_cam['rotation']['y'] * 360 / 2 / np.pi, z=T_cam['rotation']['z'] * 360 / 2 / np.pi)
-    R_v_quaternion = Quaternion(w=T_velodyne['rotation']['w'] * 360 / 2 / np.pi, x=T_velodyne['rotation']['x'] * 360 / 2 / np.pi,
-                     y=T_velodyne['rotation']['y'] * 360 / 2 / np.pi, z=T_velodyne['rotation']['z'] * 360 / 2 / np.pi)
+                                y=T_cam['rotation']['y'] * 360 / 2 / np.pi, z=T_cam['rotation']['z'] * 360 / 2 / np.pi)
+    R_v_quaternion = Quaternion(w=T_velodyne['rotation']['w'] * 360 / 2 / np.pi,
+                                x=T_velodyne['rotation']['x'] * 360 / 2 / np.pi,
+                                y=T_velodyne['rotation']['y'] * 360 / 2 / np.pi,
+                                z=T_velodyne['rotation']['z'] * 360 / 2 / np.pi)
 
     # Setup quaternion values as 3x3 orthogonal rotation matrices
     R_c_matrix = R_c_quaternion.rotation_matrix
@@ -128,7 +148,8 @@ def load_calib_data(path_total_dataset, name_camera_calib, tf_tree):
 
     # Setup translation Vectors
     Tr_cam = np.asarray([T_cam['translation']['x'], T_cam['translation']['y'], T_cam['translation']['z']])
-    Tr_velodyne = np.asarray([T_velodyne['translation']['x'], T_velodyne['translation']['y'], T_velodyne['translation']['z']])
+    Tr_velodyne = np.asarray(
+        [T_velodyne['translation']['x'], T_velodyne['translation']['y'], T_velodyne['translation']['z']])
     Tr_radar = np.asarray([T_radar['translation']['x'], T_radar['translation']['y'], T_radar['translation']['z']])
 
     # Setup Translation Matrix camera to lidar -> ROS spans transformation from its children to its parents
