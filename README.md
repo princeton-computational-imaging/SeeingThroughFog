@@ -60,6 +60,10 @@ conda activate LabelTool
 ```
 
 Download the SeeingThroughFog dataset from the [DENSE dataset webpage](https://www.uni-ulm.de/en/in/driveu/projects/dense-datasets). Please download the zip files per sensor and copy all sensorfolders into one common dataset folder.
+Currently, the dataset is experiencing more demand than expected. This leads to unexpected downtimes we want to excuse. 
+Accessing the download page through firefox is recommended and maintained with priority. In case of unavailability, please 
+reach out to the corresponding authors with a detailed error message/screenshot (including operating system and browser) via mail. 
+Usually, the availability is restored within a week. Afterwards, you will have to register again to retrieve a new download link. 
 
 After unzipping the files, your directory should look like this:
 ```
