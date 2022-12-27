@@ -59,7 +59,29 @@ Activate the conda environment.
 conda activate LabelTool
 ```
 
-Download the SeeingThroughFog dataset from the [DENSE dataset webpage](https://www.uni-ulm.de/en/in/driveu/projects/dense-datasets). Please download the zip files per sensor and copy all sensorfolders into one common dataset folder.
+Download the SeeingThroughFog dataset from the [DENSE dataset webpage](https://www.uni-ulm.de/en/in/driveu/projects/dense-datasets). Please download all split zip files named SeeingThroughFogCompressed.zXX.
+After downloading you can first check the dataset integrity by comparing the sha256sum. The file SeeingThroughFog_sha256sum.txt is part of this repository. 
+````
+sha256sum -c SeeingThroughFog_sha256sum.txt
+````
+Secondly you will have to unzip the dataset twice. The first unzipping can be performed using 7z retrieving each compressed split sensor zip. 
+You can install 7z applying:
+```
+sudo apt install p7zip-full
+```
+The extraction command is as follows,
+```
+7z x SeeingThroughFogCompressed.zip 
+```
+The extraction will return you a directory structure containing each sensor in a subdirectory split into compressed zip archives.  
+To extract those sensors you can run
+```
+bash extract.sh
+```
+Take care to comment the sensors you don't need to save storage and change the source "path_root" and destination path "dest_root".
+The labels are stored in the gt_labels folder and labeltool_labels zip and not handeled by the extract.sh script. The gt_labels folder contains all object annotations per sample.
+The labeltool_labels.zip contains all meta data about environment conditions including weather, road state and illumination conditions. 
+
 Currently, the dataset is experiencing more demand than expected. This leads to unexpected downtimes we want to excuse. 
 Accessing the download page through firefox is recommended and maintained with priority. In case of unavailability, please 
 reach out to the corresponding authors with a detailed error message/screenshot (including operating system and browser) via mail. 
