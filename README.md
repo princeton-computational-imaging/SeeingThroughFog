@@ -59,7 +59,7 @@ Activate the conda environment.
 conda activate LabelTool
 ```
 
-Download the SeeingThroughFog dataset from the [DENSE dataset webpage](https://www.uni-ulm.de/en/in/driveu/projects/dense-datasets). Please download all split zip files named SeeingThroughFogCompressed.zXX.
+Download the SeeingThroughFog dataset from the [DENSE dataset webpage](https://www.uni-ulm.de/en/in/institute-of-measurement-control-and-microtechnology/research/data-sets/dense-datasets/). Please download all split zip files named SeeingThroughFogCompressed.zXX.
 After downloading you can first check the dataset integrity by comparing the sha256sum. The file SeeingThroughFog_sha256sum.txt is part of this repository. 
 ````
 sha256sum -c SeeingThroughFog_sha256sum.txt
