@@ -1,7 +1,7 @@
 SeeingThroughFog
 ============================
 
-[Paper Link](https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion.pdf)
+[Paper Link](https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion.pdf)     &nbsp; &nbsp;    [Dataset Link](https://light.princeton.edu/datasets/automated_driving_dataset/)
 
 We introduce a object detection benchmark in challenging adverse weather conditions covering 12000 samples in real world driving scenes and 1500 samples in controlled weather conditions within a fog chamber. The dataset covers different weather conditions as Fog, Snow and Rain and was acquired by over 10,000 km of driving in northern Europe. The driven route with cities along the route are shown below. In total 100k Objekts where labeled with accurate 2D and 3D bounding boxes. Main contributions of this dataset are:
 
@@ -19,11 +19,11 @@ We introduce a object detection benchmark in challenging adverse weather conditi
 ### Videos
 
 
-##### Real world recording in dense fog.
+##### Real-world recording in dense fog.
 
 <img src="./SeeingThroughFog/dense_fog.gif" width="500">
 
-##### Real world recording in heavy snowfall.
+##### Real-world recording in heavy snowfall.
 
 <img src="./SeeingThroughFog/heavy_snowfall.gif" width="500">
 
@@ -59,7 +59,7 @@ Activate the conda environment.
 conda activate LabelTool
 ```
 
-Download the SeeingThroughFog dataset from the [DENSE dataset webpage](https://www.uni-ulm.de/en/in/driveu/projects/dense-datasets). Please download all split zip files named SeeingThroughFogCompressed.zXX.
+Download the SeeingThroughFog dataset from the [Dataset Website](https://light.princeton.edu/datasets/automated_driving_dataset/). Please download all split zip files named SeeingThroughFogCompressed.zXX.
 After downloading you can first check the dataset integrity by comparing the sha256sum. The file SeeingThroughFog_sha256sum.txt is part of this repository. 
 ````
 sha256sum -c SeeingThroughFog_sha256sum.txt
@@ -180,7 +180,7 @@ Tools can be found in
 ```
 "./SeeingThroughFog/tools/".
 ```
-The tools help to viszualize the dataset (DatasetViewer), create a TFRecords dataset (CreateTFRecords), 
+The tools help to visualize the dataset (DatasetViewer), create a TFRecords dataset (CreateTFRecords), 
 create simple fog simulations for lidar and rgb data
 (DatasetFoggification) and to quickly reason about the dataset statistics (DatasetStatisticsTool).  
 
